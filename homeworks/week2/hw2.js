@@ -1,3 +1,9 @@
+function capitalize(str){
+  return str[0].toUpperCase() //不需分辨大小寫及是否為英文字母，因 toUpperCase 仍會回傳非小寫字串
+         + str.slice(1)       //輸出 index 自 1 開始的元素
+}
+
+/* 記念原本寫的不使用內建函式方式
 function capitalize(str) {
     let result = ""
     let findLowerCase = false
@@ -16,6 +22,6 @@ function capitalize(str) {
       }
     }
     return result
-  }
-
+}
+*/
 console.log(capitalize('hello'));
