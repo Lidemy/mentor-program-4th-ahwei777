@@ -17,7 +17,7 @@
 `git add .`　(全部 untracked files 均加入)
 
 6. 執行 commit 指令，完成本機版本更新  
-`git commit -am"commit message"`
+`git commit -am "commit message"`
 
 7. 將本機該週 Branch（week1） 更新至遠端  
 `git push origin "week1"`
