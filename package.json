@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "yoyo": "echo 123",
     "lint": "eslint ./homeworks/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/Lidemy/mentor-program-4th#readme",
   "dependencies": {
-    
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eslint": "^5.15.1",
