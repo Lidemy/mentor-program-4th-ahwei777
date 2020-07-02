@@ -1,8 +1,10 @@
 const request = require('request');
 
+const name = process.argv[2];
+/*  eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 request(
   {
-    url: 'https://api.twitch.tv/kraken/games/top',
+    url: `https://api.twitch.tv/kraken/streams/?game=${name}`,
     headers: {
       Accept: 'application/vnd.twitchtv.v5+json',
       'Client-ID': 'dydednz75uxxl9yy8cilw7t40ofcsw',
@@ -13,8 +15,9 @@ request(
       return console.log('抓取失敗', error);
     }
     const json = JSON.parse(body);
-    for (let i = 0; i < json.top.length; i += 1) {
-      console.log(`${json.top[i].viewers} ${json.top[i].game.name}`);
+    //  console.log(json.streams);
+    for (let i = 0; i < json.streams.length; i += 1) {
+      console.log(`${json.streams[i].channel.name} ${json.streams[i]._id}`);
     }
     return true;
   },
