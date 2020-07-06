@@ -18,11 +18,10 @@
 
 Base URL: https://myRestaurant.com
 
-| 說明     | Method | path       | 參數                   | 範例             |
-|--------|--------|------------|----------------------|----------------|
-| 回傳所有餐廳資料 | GET    | /restaurants     | 無           | /restaurants |
-| 回傳單一餐廳資料 | GET    | /restaurants/:id | 無                    | /restaurants/1      |
-| 刪除餐廳   | POST   | /restaurants     | name: 名稱 | 無              |
-| 新增餐廳   | DELETE   | /restaurants/:id     | 無 | 無              |
-| 更改餐廳資訊   | PATCH   | /restaurants/:id     | name: 名稱, address: 地址, phone: 電話 | 無              |
-
+| 說明| Method | path | 參數類型 | 參數 | 範例 |
+|-|-|-|-|-|-|
+| 回傳所有餐廳資料 | GET | /restaurants | query | _limit:限制回傳資料數量 | /restaurants?_limit=5 |
+| 回傳單一餐廳資料 | GET | /restaurants/:id | route | 無 | /restaurants/1      |
+| 新增餐廳   | POST   | /restaurants     | header  | name: 名稱 | 無              |
+| 刪除餐廳   | DELETE   | /restaurants/:id     | route | 無 | restaurants/2              |
+| 更改餐廳資訊   | PATCH   | /restaurants/:id     | header  | name: 名稱, address: 地址, phone: 電話 | 無              |
