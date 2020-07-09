@@ -1,15 +1,25 @@
 const request = require('request');
 
+const API_URL = 'https://restcountries.eu/rest/v2';
 const name = process.argv[2];
 //  console.log(process.argv)
 
 request(
-  `https://restcountries.eu/rest/v2/name/${name}`,
-  (error, response, body) => {
-    if (error) {
-      return console.log('抓取失敗', error);
+  `${API_URL}/name/${name}`,
+  (err, response, body) => {
+    //  利用正規表達式判斷輸入
+    if (!(/^[A-Za-z]+$/.test(name))) {
+      return console.log('請以英文字母輸入該國家名稱');
     }
-    const json = JSON.parse(body);
+    if (err) {
+      return console.log('抓取失敗', err);
+    }
+    let json;
+    try {
+      json = JSON.parse(body);
+    } catch (error) {
+      console.log(error);
+    }
     if (json.status === 404) {
       return console.log('「找不到國家資訊」');
     }
