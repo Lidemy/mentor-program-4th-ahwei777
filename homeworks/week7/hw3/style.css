@@ -1,0 +1,79 @@
+
+body {
+  background-color: rgb(250, 227, 162);
+}
+/*  通用 wrapper ，設定 margin & padding 及限制最大寬度  */
+.wrapper {
+  max-width: 1000px;
+  margin: 20px auto ;
+  padding: 0 12px;
+}
+/*  裝飾圓點  */
+.icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background-color: yellow;
+  box-shadow: 5px 5px 5px gray;
+  position: fixed;
+}
+.icon-left {
+  left: 30px;
+}
+.icon-right {
+  right: 30px;
+}
+/*  大標題  */
+.title {
+  margin: 0 auto ;
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+/*  輸入區域  */
+.input-block {
+  display: flex;
+  justify-content: center;
+}
+.input-bar {
+  width: 500px;
+  text-align: center;
+  background-color: #f0e8e8;
+  border: black 2px solid;
+}
+.btn-new {
+  margin-left: 20px;
+}
+/*  todos 區域  */
+.todos-block {
+  max-width: 800px;
+  margin: 30px auto;
+  height: auto;
+  border: grey 1px solid;
+}
+.todo {
+  margin: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+}
+.todo-title {
+  flex: 1;
+  font-size: 30px;
+}
+.todo input {
+  margin-right: 30px;
+}
+.todo.checked .todo-title {
+  text-decoration: line-through;
+}
+
+/*  RWD 設計  */
+@media(max-width: 768px) {
+}
