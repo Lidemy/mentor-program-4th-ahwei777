@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Twitch Top Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+ <body class = 'debug'>
+  <!--  遊戲列表選單  -->
+  <!--  提醒：設置 container 時勿留空白避免選取子元素時出錯(空白會被當成 text 元素) -->
+  <nav class = 'navbar'>
+      <div class = 'navbar__site-name'>Twitch Top Games</div>
+      <!--  負責接收前五熱門遊戲名稱的 container  -->
+      <div class = 'navbar__list'></div>
+  </nav>
+  <!--  實況頻道列表，設定 wrapper 讓整體置中及預留左右間隔 -->
+  <section class = 'wrapper'>
+    <div class = 'game__info'>
+        <!--  依據使用者所點選遊戲更新主標題  -->
+        <div class = 'game__info-name'></div>
+        <div class = 'game__info-desc'> Top 20 popular live streams sorted by current viewers</div>
+    </div>
+    <!--  責接收實況頻道列表的 container  -->
+    <div class = 'streams__list'></div>
+  </section>
+  <div class = 'more-btn hide'> Watch more!</div>
+<script src = './index.js'></script>
+<!--  第一次寫的一條龍爛扣，留著當紀念XD
+<script>
+  const request__getName = new XMLHttpRequest();
+  const container = 
+  request__getName.onload = function() {
+    const response = request__getName.responseText;
+    const json = JSON.parse(response);
+    const tops = json.top
+    for (let i = 0; i < 5; i++) {
+      const name = tops[i].game.name;
+      document.querySelector(`.top${i}`).innerText = name;
+      document.querySelector(`.top${i}`).addEventListener('click', (e) => {
+        document.querySelector('section').classList.remove('hide');
+        document.querySelector('.streams__list').innerHTML = '';
+        document.querySelector('.game__info-name').innerText = name;
+        const request__getStreams = new XMLHttpRequest();
+        const container__streams = document.querySelector('.streams__list')
+        request__getStreams.onload = function() {
+          const response = request__getStreams.responseText;
+          const json = JSON.parse(response);
+          const stream = json
+          for (let i = 0; i < 20; i++) {
+            const preview = json.streams[i].preview.medium;
+            const logo = json.streams[i].channel.logo
+            const status = json.streams[i].channel.status;
+            const name = json.streams[i].channel.name;
+            const url = json.streams[i].channel.url;
+            const div = document.createElement('div');
+            console.log(url)
+            div.classList.add('stream')
+            div.innerHTML = `
+            <img class = 'stream-preview' src = '${preview}'></img>
+            <div class = 'stream-info'>
+              <img class = 'stream-logo' src = '${logo}'></img>
+              <div>
+                <div class = 'stream-info-status'>${status}</div>
+                <div class = 'stream-info-name'>${name}</div>
+              </div>
+            </div>
+            `
+            container__streams.appendChild(div)
+          }
+        }
+        request__getStreams.onerror = function() {
+          console.log('err')
+        }
+        request__getStreams.open('GET', `https://api.twitch.tv/kraken/streams/?game=${name}&limit=20`, true);
+        request__getStreams.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json');
+        request__getStreams.setRequestHeader('Client-ID', 'dydednz75uxxl9yy8cilw7t40ofcsw');
+        request__getStreams.send();
+      })
+    }
+  }
+  request__getName.onerror = function() {
+    console.log('err')
+  }
+  request__getName.open('GET', 'https://api.twitch.tv/kraken/games/top', true);
+  request__getName.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json');
+  request__getName.setRequestHeader('Client-ID', 'dydednz75uxxl9yy8cilw7t40ofcsw');
+  request__getName.send();
+</script>
+-->
+</body>
+</html>
