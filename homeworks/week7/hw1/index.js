@@ -15,7 +15,10 @@ document.querySelector('.buttons__block-save').addEventListener('click', () => {
 });
 
 const textBars = document.querySelectorAll('input[type = text]');
-let textIsValid = true;
+let nameIsValid = false;
+let emailIsValid = false;
+let phoneIsValid = false;
+let answerIsValid = false;
 const values = {};
 // eslint-disable-next-line
 for (const textBar of textBars) {
@@ -25,49 +28,45 @@ for (const textBar of textBars) {
       case 'title':
         if (!textBar.value) {
           textBar.nextElementSibling.innerText = '請輸入暱稱';
-          textIsValid = false;
         } else if (!(/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(textBar.value))) {
           textBar.nextElementSibling.innerText = '限使用中文/英文/數字/底線!';
-          textIsValid = false;
+          nameIsValid = false;
         } else {
           textBar.nextElementSibling.innerText = '';
-          textIsValid = true;
+          nameIsValid = true;
         }
         break;
       case 'email':
         if (!textBar.value) {
           textBar.nextElementSibling.innerText = '請輸入電子郵件';
-          textIsValid = false;
         } else if (!(/^.+@.+\./.test(textBar.value))) {
           textBar.nextElementSibling.innerText = '電子郵件格式錯誤!';
-          textIsValid = false;
+          emailIsValid = false;
         } else {
           textBar.nextElementSibling.innerText = '';
-          textIsValid = true;
+          emailIsValid = true;
         }
         break;
       case 'phone':
         if (!textBar.value) {
           textBar.nextElementSibling.innerText = '請輸入手機號碼';
-          textIsValid = false;
         } else if (!(/^09\d{8}$/.test(textBar.value))) {
           textBar.nextElementSibling.innerText = '手機號碼格式錯誤!';
-          textIsValid = false;
+          phoneIsValid = false;
         } else {
           textBar.nextElementSibling.innerText = '';
-          textIsValid = true;
+          phoneIsValid = true;
         }
         break;
       case 'answer':
         if (!textBar.value) {
           textBar.nextElementSibling.innerText = '請勿留空';
-          textIsValid = false;
         } else if (!(/^[\u4e00-\u9fa5a-zA-Z]+$/.test(textBar.value))) {
           textBar.nextElementSibling.innerText = '限使用中文/英文!';
-          textIsValid = false;
+          answerIsValid = false;
         } else {
           textBar.nextElementSibling.innerText = '';
-          textIsValid = true;
+          answerIsValid = true;
         }
         break;
       default: break;
@@ -78,6 +77,7 @@ for (const textBar of textBars) {
 //  送出表單前的檢查
 document.querySelector('form').addEventListener('submit', (e) => {
   let radioIsValid = false;
+  let textIsValid = true;
   //  找出所有必填項目
   const elements = document.querySelectorAll('.required');
   // eslint-disable-next-line
@@ -85,6 +85,9 @@ document.querySelector('form').addEventListener('submit', (e) => {
     const text = element.querySelector('input[type = text]');
     const radios = element.querySelectorAll('input[type = radio]');
     if (text) {
+      if (!text.value) {
+        textIsValid = false;
+      }
       values[text.name] = text.value;
     } else if (radios.length) {
       //  如至少有一項 radio 為 checked 即為 true
@@ -105,7 +108,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     //  如修改後通過驗證則再把警告紅字隱藏起來
   }
   //  若所有欄位皆未產生錯誤，跳出 alert 展示使用者填寫資料
-  if (radioIsValid && textIsValid) {
+  if (radioIsValid && textIsValid && nameIsValid && emailIsValid && phoneIsValid && answerIsValid) {
     //  以 template 呈現輸出格式
     // eslint-disable-next-line
     alert(` 
