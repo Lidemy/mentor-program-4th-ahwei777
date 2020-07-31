@@ -56,6 +56,10 @@ body {
   font-family: MicrosoftJhengHei;
   font-size: 16px;
   color: #afafaf;
+  border: rgb(122, 211, 238) 1px solid;
+}
+.placebar:-ms-keyboard-active {
+  transform: scale(1.2);
 }
 /*  輸入欄位描述  */
 .input-block__desc {
