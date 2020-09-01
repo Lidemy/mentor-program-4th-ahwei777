@@ -1,0 +1,265 @@
+* {
+  transition: all 0.7s;
+  box-sizing: border-box;
+}
+body {
+  background: url(./img/bg.jpg) center/cover no-repeat;
+}
+
+a {
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  margin-left: 20px;
+}
+a:hover, .active, .article input[type = "submit"]:hover, .article a:hover {
+  cursor: pointer;
+  background: orange;
+}
+
+/* 頂端導覽列 */
+nav {
+  display: flex;
+  background: blanchedalmond;
+  padding: 10px 30px;
+}
+.nav_title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.nav_btns {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-self: flex-end;
+  font-size: 20px;
+}
+.nav_btns-function {
+  display: flex;
+}
+
+/* cover 橫幅 */
+
+.banner_intro {
+  background: black;
+  height: 200px;
+  opacity: 0.7;
+}
+.banner_intro-content {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  line-height: 200px;
+}
+
+/* 文章列表 */
+.articles {
+
+}
+
+/* 文章區塊 */
+.article {
+  max-width: 900px;
+  margin: 30px auto;
+  opacity: 0.8;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.article_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: lightgray 5px solid;
+  border-radius: 5px;
+  align-items: center;
+}
+
+  /* 編輯刪除按鈕 */
+.article a {
+  background: lightgray;
+  color: black;
+  border: none;
+  font-size: 20px;
+}
+.article input[type = "submit"] {
+  background: lightgray;
+  padding: 5px 10px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+
+.article_info {
+  background: lightgray;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.article_content {
+  margin: 30px auto;
+  padding: 0px 15px;
+}
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.article_more {
+  background: none;
+  font-size: 20px;
+}
+
+/* 分頁功能 */
+.page_info {
+  text-align: center;
+}
+.paginator > a {
+  margin: 10px;
+  background: bisque;
+}
+.btn_gotop {
+  background: coral;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+
+/* 登入頁面 */
+
+.login_block {
+  font-size: 25px;
+  margin: 50px auto;
+  background: white;
+  text-align: center;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+input {
+  margin-bottom: 25px;
+}
+
+.btn_submit {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: blanchedalmond;
+  cursor: pointer;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 分類標籤 */
+
+.categories {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+}
+.categories_header {
+  color: white;
+  display: inline-block;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px 0px;
+  border-radius: 5px;
+}
+
+.articles_bycategories {
+  margin: 15px;
+  border: lightslategrey 1px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* 分類可選三顏色 */
+.red {
+  background: red;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+.blue {
+  background: blue;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+.green {
+  background: green;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+/* 自介頁面 */
+.aboutme {
+  white-space: pre-line;
+  
+}
+
+/* 新增文章頁面 */
+
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+
+.form_add_article_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+label {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.btn_add_article {
+  display: block;
+  margin: 15px auto;
+  font-size: 30px;
+}
+
+/* 更新分類頁面 */
+
+table, th, td {
+  border: grey 1px solid;
+  padding: 15px;
+  text-align: center;
+}
+table {
+  text-align: center;
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 15px auto;
+  
+}
+th {
+  background: rgb(184, 183, 183);
+}
+table input {
+  margin: 0;
+}
+
+.row_add_categories {
+  background: bisque;
+}

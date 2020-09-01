@@ -1,0 +1,282 @@
+/*  全體屬性  */
+* {
+  box-sizing: border-box;
+  transition: all 0.6s;
+}
+/*  滿版背景圖  */
+body {
+  background: url(./img/bg.jpg) center/cover no-repeat;
+  opacity: 0.9;
+}
+/*  頂端列  */
+header {
+  text-align: center;
+  opacity: 0.9;
+  background: chocolate;
+}
+.header_warning {
+  color: yellow;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 5px;
+}
+/*  功能列  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+.nav-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+.nav-btns {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-btns > a {
+  border: white 2px solid;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.nav-btns > a ~ a {
+  margin-left: 20px;
+}
+.nav-btns > a:hover, .active {
+  background-color: rgb(114, 114, 114);
+}
+/*  歡迎身份句  */
+.welcome_msg {
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+}
+.span_highlight {
+  color: gold;
+  font-weight: bold;
+}
+/*  留言區外套  */
+.wrapper {
+  opacity: 0.9;
+  background-color: white;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 15px;
+}
+/*  留言輸入區  */
+.form_comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*  留言輸入框  */
+.form_comment > textarea {
+  font-size: 20px;
+  width: 85%;
+  resize: none;
+  border: grey 5px solid;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+}
+/*  編輯留言標題  */
+.form_title {
+  font-size: 30px;
+  background: lightgray;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+/*  編輯暱稱  */
+.form_update-user {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.submit_update-user {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  outline: none;
+}
+/*  顯示留言區域  */
+.comment_avatar {
+  background-color: aquamarine;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+.comment {
+  border: aquamarine 3px dotted;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.comment_info-time {
+  font-size: 14px;
+  color: gray;
+  margin-left: 10px;
+}
+.comment_info a { /*  編輯&刪除按鈕  */
+  text-decoration: none;
+  background: aquamarine;
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  margin-left: 5px;
+}
+.comment_info a:hover {
+  background: rgb(202, 200, 200);
+}
+.comment-text {
+  margin-top: 10px;
+}
+/*  註冊&登入表單  */
+.form_register {
+  text-align: center;
+  font-size: 24px;
+}
+.form_register input {
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+form .submit { /*  通用表單送出按鈕  */
+  cursor: pointer;
+  font-size: 30px;
+  margin: 15px;
+  padding: 10px;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+form .submit:hover {
+  transform: scale(1.2);
+}
+.title {
+  text-align: center;
+}
+.warning {
+  text-align: center;
+  font-size: 30px;
+  color: red;
+  font-weight: bold;
+  margin: 10px;
+}
+/*  分頁區域  */
+.page-info {
+  text-align: center;
+}
+.paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.paginator > a {
+  font-size: 20px;
+  border-radius: 5px;
+  background: aquamarine;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+}
+.paginator > a ~ a {
+  margin-left: 10px;
+}
+.paginator > a:hover {
+  background: rgb(197, 198, 199);
+}
+.btn-gotop {
+  display: inline-block;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 15px 80px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: chocolate;
+  color: white;
+  margin: 20px auto;
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+}
+
+/*  表格  */
+table, th, td {
+  border: grey 1px solid;
+  padding: 15px;
+  text-align: center;
+}
+table {
+  text-align: center;
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 15px auto;
+  
+}
+caption {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+th {
+  background: rgb(184, 183, 183);
+}
+.tr_role :not(:first-child) {
+  font-size: 20px;
+  font-weight: bold;
+}
+.tr_add_authority {
+  background: bisque;
+}
+select {
+  padding: 3px;
+}
+
+/*  管理後台  */
+
+.admin_wrapper {
+  padding: 30px;
+}
+.form_update-role {
+  display: inline;
+}
+tr input[type='submit'] {
+  background: aquamarine;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+tr input[type='submit']:hover {
+  cursor: pointer;
+  background: rgb(202, 200, 200);
+}
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+
+
+/*  特殊屬性  */
+
+.hide {
+  display: none;
+}
