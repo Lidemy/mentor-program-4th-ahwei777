@@ -1,0 +1,7 @@
+<section>
+  <div class = "banner_intro">
+    <div class = "banner_intro-content">
+      檳友...可以...來...看看...
+    </div>
+  </div>
+</section>
