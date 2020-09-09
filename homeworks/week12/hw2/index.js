@@ -33,7 +33,7 @@ function restoreTodos(todos) {
             <input type="checkbox" class="input_check" ${todo.is_completed ? 'checked' : ''}>
           </div>
         </div>
-        <input type="text" class="form-control ${todo.is_completed ? 'checked' : ''}" value='${escape(todo.content)}' ${todo.is_completed ? 'disabled' : ''}>
+        <input type="text" class="form-control ${todo.is_completed ? 'checked' : ''}" value='${escape(todo.content)}' ${escape(todo.is_completed) ? 'disabled' : ''}>
         <i class="fas fa-trash-alt ml-5"></i>
       </div>
     `);

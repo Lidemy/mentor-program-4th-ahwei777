@@ -40,7 +40,7 @@ function addComments(comment, isPrepend) {
   const html = `
     <div class="card my-3">
       <div class="card-body">
-        <h5 class="card-title">ID: ${comment.id}</h5>
+        <h5 class="card-title">ID: ${escape(comment.id)}</h5>
         <h5 class="card-title">${escape(comment.nickname)}</h5>
         <p class="card-text">${escape(comment.content)}</p>
         <p class="card-text"><small class="text-muted">${escape(comment.created_at)}</small></p>
