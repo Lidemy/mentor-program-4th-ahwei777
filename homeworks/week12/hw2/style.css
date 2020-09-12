@@ -1,0 +1,73 @@
+body {
+  background: palegoldenrod;
+}
+/*  左右裝飾圖案  */
+.icon > i {
+  top: 30px;
+  font-size: 50px;
+  color: orange;
+  position: fixed;
+}
+.icon-left > i {
+  left: 30px;
+}
+.icon-right > i {
+  right: 30px;
+}
+/*  大標題  */
+.title {
+  color: orange;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+/*  wrapper  */
+.wrapper {
+  max-width: 600px;
+  background: white;
+  border-radius: 10px;
+}
+/*  未完成數量提示  */
+.uncompletedtodoCount {
+  font-weight: bold;
+  color: orange;
+  text-decoration: underline;
+  font-size: 20px;
+}
+/*  單行 todo 元素  */
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/*  勾選框  */
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+/*  勾選後 input 內文字效果  */
+.checked {
+  text-decoration-line: line-through;
+}
+/*  刪除符號  */
+.fa-trash-alt{
+  font-size: 25px;
+}
+.fa-trash-alt:hover {
+  cursor: pointer;
+  color: orange;
+}
+/*  footer  */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: dimgrey;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+}
