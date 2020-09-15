@@ -99,8 +99,8 @@ getGamesByFetch
     //  預設顯示第一名的遊戲實況列表，調用相關函數以更新頁面元素
     getStreamsByFetch(topGames[0])
       //  錯誤處理
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       }).then((json1) => {
         //  更新實況列表的主標題
         // eslint-disable-next-line
