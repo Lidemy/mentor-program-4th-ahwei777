@@ -1,0 +1,24 @@
+@use './variables' as var;
+@use './mixin' as mix;
+
+* {
+  transition: all 0.7s;
+  box-sizing: border-box;
+}
+body {
+  background: var.$background-img;
+}
+
+/* 分類標籤 */
+.red {
+  background: var.$red;
+  @include mix.tag;
+}
+.blue {
+  background: var.$blue;
+  @include mix.tag;
+}
+.green {
+  background: var.$green;
+  @include mix.tag;
+}

@@ -1,0 +1,49 @@
+@use './../variables' as var;
+@use './../mixin' as mix;
+
+/* 文章區塊 */
+.article {
+  max-width: 900px;
+  margin: 30px auto;
+  opacity: 0.8;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: lightgray 5px solid;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  /* 編輯刪除按鈕 */
+  &  a {
+    background: blanchedalmond;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 20px;
+    color: var.$nav-text-color;
+
+    &:hover {
+      background: darken($color: blanchedalmond, $amount: 10);
+    }
+  }
+
+  &_info {
+    background: lightgray;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &_content {
+    margin: 30px auto;
+    padding: 0px 15px;
+  }
+}
