@@ -1,0 +1,32 @@
+@use './../variables' as var;
+@use './../mixin' as mix;
+
+/* 頂端導覽列 */
+.nav {
+  display: flex;
+  background: blanchedalmond;
+  padding: 10px 30px;
+  
+  &_title {
+    font-size: var.$font-size-title;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+
+  &_btns {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-self: flex-end;
+    font-size: var.$font-size-normal;
+    color: var.$nav-text-color;
+
+    &-normal {
+      display: flex;
+    }
+  }
+
+  & a {
+    @include mix.btn_set;
+  }
+}

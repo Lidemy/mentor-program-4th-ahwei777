@@ -1,0 +1,15 @@
+@use './../variables' as var;
+
+/* 分頁功能 */
+.page_info {
+  text-align: center;
+}
+.paginator > a {
+  margin: 10px;
+  background: bisque;
+}
+.btn_gotop {
+  background: coral;
+  margin-top: 20px;
+  padding: 15px;
+}

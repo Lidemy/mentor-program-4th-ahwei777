@@ -1,0 +1,21 @@
+@use './../variables' as var;
+@use './../mixin' as mix;
+
+/* 新增文章頁面 */
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+.form_add_article_title {
+  font-size: var.$font-size-title;
+  font-weight: bold;
+}
+label {
+  margin-right: 10px;
+  display: inline-block;
+}
+.btn_add_article {
+  @include mix.btn_set;
+  margin: 10px auto;
+  display: block;
+  font-size: var.$font-size-title;
+}

@@ -1,0 +1,26 @@
+@use './variables' as var;
+
+@mixin tag {
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+@mixin btn_set {
+  border: none;
+  background: blanchedalmond;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20px;
+  color: var.$nav-text-color;
+
+  &:hover {
+    background: darken($color: blanchedalmond, $amount: 10);
+    cursor: pointer;
+  }
+  &.active {
+    background: darken($color: blanchedalmond, $amount: 10);
+  }
+}

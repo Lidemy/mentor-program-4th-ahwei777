@@ -1,0 +1,17 @@
+@use './../variables' as var;
+@use './../mixin' as mix;
+
+/* cover 橫幅 */
+.banner {
+  background: black;
+  height: 200px;
+  opacity: 0.7;
+
+  &_text {
+    color: white;
+    font-size: var.$font-size-title;
+    text-align: center;
+    line-height: 200px;
+    font-weight: bold;
+  }
+}
