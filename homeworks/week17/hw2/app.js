@@ -1,5 +1,5 @@
 // 占用的 port
-const port = 5002;
+const port = process.env.PORT || 3000;
 // 引入所有相關套件
 // express
 const express = require('express');

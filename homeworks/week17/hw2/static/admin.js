@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const apiBaseURL = 'http://localhost:5002/lotteries/';
+const apiBaseURL = 'https://obscure-refuge-93288.herokuapp.com/lotteries/';
 const lotteryRowTemplate = `
   <tr class="lottery_row row_add">
     <td>
