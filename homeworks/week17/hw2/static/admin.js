@@ -22,17 +22,14 @@ const lotteryRowTemplate = `
 //  檢查 input 有無空值
 function checkAllInput() {
   let hasEmpty = false;
-  $('.lottery_row').each((i, el) => {
+  $('input[type=text]').each((i, el) => {
     //  排除已刪除的獎項不計算
-    if (!$(el).hasClass('deleted')) {
-      const input = $(el).find('input[type=text]').val();
-      if (input === '') {
-        $('.modal-body').text('輸入欄位不得為空!');
-        $('#popupMsg').modal('show');
-        hasEmpty = true;
-        //  跳出 each
-        return false;
-      }
+    if (!$(el).parent().parent().hasClass('deleted') && $(el).val() === '') {
+      $('.modal-body').text('輸入欄位不得為空!');
+      $('#popupMsg').modal('show');
+      hasEmpty = true;
+      //  跳出 each
+      return false;
     }
     return true;
   });
@@ -69,6 +66,7 @@ $('table').on('click', '.fa-trash-alt', (e) => {
   deletedRow.fadeOut(); //  隱藏該行
 });
 //  限制輸入機率為 1~100 的數字(代理)
+// eslint-disable-next-line func-names
 $('table').on('input propertychange', 'input[name=chance]', function () {
   const limitNum = $(this)
     .val()
