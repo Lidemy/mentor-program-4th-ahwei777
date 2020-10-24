@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:seed": "npx sequelize-cli db:seed:all",
     "db:migrate": "npx sequelize-cli db:migrate",
-    "start": "node app.js && npm run db:migrate && npm run db:seed"
+    "start": "npm run db:migrate && npm run db:seed && node app.js"
   },
   "author": "",
   "license": "ISC",
