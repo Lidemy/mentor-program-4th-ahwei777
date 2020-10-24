@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<% let beforeId = null %>
+<% let nowId = null %>
+<html>
+<head>
+  <%- include('../template/head') %>
+</head>
+<body>
+  <%- include('../template/navbar') %>
+  <%- include('../template/banner') %>
+  <!-- 直接根據 res.locals 內的 errorMessage 取得錯誤訊息 -->
+  <% if (errorMessage.length > 0) { %> <!-- errorMessage 預設值為空陣列 --> 
+    <div class="alert alert-danger" role="alert">
+      <%= errorMessage %>
+    </div>
+  <% } %>
+  <!-- %= 語法已自動處理 escape 防止 XSS -->
+  <main class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-5">
+          <!-- 分類按鈕 -->
+          <% for(categ of gotCategories) { %>
+            <button type="button" class="mr-3 btn btn-lg btn-outline<%- categ.color.slice(4) %>"><%- categ.name %></button>
+          <% } %>
+        </div>
+        <% for(post of posts) { %>
+          <div class="blog-post mb-3 <%= post.Category.name %> hide">
+            <h2><%- post.title %></h2>
+            <p><%= moment(post.createdAt).locale("zh-tw").format('LLL') %></p>
+            <p class="lead mb-0"><a href="/post/<%= post.id %>" class="font-weight-bold">Continue reading...</a></p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </main>
+  <%- include('../template/footer') %>
+  <script>
+    //  代理監聽
+    $(".container").on("click", ".btn", (e) => {
+      //  清除已點選標記
+      $(".btn").each((i, el) => {
+        $(el).removeClass('active');
+      });
+      //  點選目標加標記
+      $(e.target).addClass('active');
+      //  恢復所有元素
+      $(".blog-post").each((i, el) => {
+        $(el).show();
+      })
+      const selectedCateg = e.target.innerText;
+      //  隱藏非指定分類元素
+      $(".blog-post").each((i, el) => {
+        if(!$(el).hasClass(selectedCateg)) {
+          $(el).hide();
+        }
+      })
+    });
+  </script>
+</body>
+</html>

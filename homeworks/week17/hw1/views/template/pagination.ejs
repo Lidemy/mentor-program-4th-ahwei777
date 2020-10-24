@@ -1,0 +1,27 @@
+<% 
+let count = null;
+let totalPage = null;
+
+if (typeof posts !== "undefined") {
+  count = posts.count
+  totalPage = Math.ceil(count/5)
+}
+%> 
+
+<nav>
+  <ul class="pagination justify-content-center">
+    <% if(count !== 0 && nowPage <= totalPage) { %>
+      <li class="page-item <% if(nowPage == 1 || !nowPage) { %>disabled<% } %>">
+        <a class="page-link" <% if(nowPage !== 1) { %>href="/postAll/<%= nowPage - 1 %>"<% } %>>前一頁</a>
+      </li>
+      <% for(let i = 1; i <= totalPage; i++) { %> 
+      <li class="page-item <% if(i == nowPage) { %>active<% } %> ">
+        <a class="page-link" <% if(i != nowPage) { %>href="/postAll/<%= i %>"<% } %>><%= i %></a>
+      </li>
+      <% } %> 
+      <li class="page-item <% if(nowPage == totalPage) { %>disabled<% } %>">
+        <a class="page-link" <% if(nowPage !== totalPage) { %>href="/postAll/<%= Number(nowPage) + 1 %>"<% } %>>下一頁</a>
+      </li>
+    <% } %> 
+  </ul>
+</nav>

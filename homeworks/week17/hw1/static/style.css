@@ -1,0 +1,96 @@
+/*  全體屬性  */
+html {
+  height: 100%;
+}
+/*  滿版背景圖  */
+body {
+  background: url(/bg.jpg) center center fixed no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* footer */
+footer {
+  background: black;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer > div {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+/* cover 橫幅 */
+.banner_intro {
+  background: black;
+  height: 150px;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+.banner_intro-content {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  line-height: 150px;
+}
+/* wrapper */
+.container {
+  max-width: 900px;
+  opacity: 0.8;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.container .form-row {
+  justify-content: center;
+}
+/* 自介頁面 */
+.aboutme {
+  white-space: pre-line;
+}
+/* post wrapper */
+.blog-post {
+  text-align: left;
+  border: 3px lightgray solid;
+  border-radius: 5px;
+  padding: 15px;
+}
+.post_content,
+.post_content > p {
+  overflow-wrap: break-word;
+}
+
+/* 新增文章頁面 */
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+
+/* 更新分類頁面 */
+.table {
+  text-align: center;
+}
+.row_add_category {
+  background-color: bisque;
+}
+/* 管理文章頁面 */
+.postAdmin {
+  margin: 15px;
+  border: lightslategrey 1px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.postAdmin_info > span,
+a {
+  margin-left: 5px;
+}
+
+/*  特殊屬性  */
+.hide {
+  display: none;
+}

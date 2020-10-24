@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('template/head') %>
+</head>
+<body>
+  <%- include('template/navbar') %>
+  <%- include('template/banner') %>
+  <!-- 直接根據 res.locals 內的 errorMessage 取得錯誤訊息 -->
+  <% if (errorMessage.length > 0) { %> <!-- errorMessage 預設值為空陣列 --> 
+    <div class="alert alert-danger" role="alert">
+      <%= errorMessage %>
+    </div>
+  <% } %>
+  <!-- %= 語法已自動處理 escape 防止 XSS -->
+  <main class="container">
+    <div class="row">
+      <div class="col-md-12 blog-main">
+        <!-- 空值處理 -->
+        <% if (typeof posts !== 'undefined') { %>
+          <% posts.forEach(function(post) { %>
+            <div class="blog-post mb-3">
+              <strong class="d-inline-block mb-2 <%= post.Category.color %>"><%= post.Category.name %></strong>
+              <h2 class="blog-post-title"><%= post.title %></h2>
+              <div class="blog-post-meta"><%= moment(post.createdAt).locale("zh-tw").format('LLL') %></div>
+              <div class="post_content lead my-3"><%- post.content.substring(0, 101) %></div>
+              <p class="lead mb-0"><a href="/post/<%= post.id %>" class="font-weight-bold">Continue reading...</a></p>
+            </div><!-- /.blog-post -->
+          <% }) %>
+        <% } %>
+      </div><!-- /.blog-main -->
+    </div><!-- /.row -->
+  </main><!-- /.container -->
+
+  <%- include('template/footer') %>
+  
+</body>
+</html>

@@ -1,2 +1,4 @@
 examples/
 dist/
+migrations/
+models/
