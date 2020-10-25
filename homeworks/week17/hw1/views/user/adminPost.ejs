@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('../template/head') %>
+</head>
+<body>
+  <%- include('../template/navbar') %>
+  <%- include('../template/banner') %>
+  <!-- 直接根據 res.locals 內的 errorMessage 取得錯誤訊息 -->
+  <% if (errorMessage.length > 0) { %> <!-- errorMessage 預設值為空陣列 --> 
+    <div class="alert alert-danger" role="alert">
+      <%= errorMessage %>
+    </div>
+  <% } %>
+  <!-- %= 語法已自動處理 escape 防止 XSS -->
+  <script>
+    let deleteId = 0
+    function getValue(e){
+      deleteId = e.value
+      console.log(deleteId)
+    }
+  </script> 
+  <main class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- 空值處理 -->
+        <% if (typeof posts !== 'undefined') { %>
+          <% posts.forEach(function(post) { %>
+            <div class = 'postAdmin'>
+              <div><%= post.title %></div>
+              <div class='postAdmin_info'>
+                <span class="<%= post.Category.color %>"><%= post.Category.name %></span>
+                <span><%= moment(post.createdAt).locale("zh-tw").format('LLL') %></span>
+                <a class="btn btn-outline-primary btn-sm" href="/post/<%= post.id %>">瀏覽</a>
+                <a class="btn btn-outline-success btn-sm" href="/updatePost/<%= post.id %>">編輯</a>
+                <a class="btn btn-outline-danger btn-sm" href="/deletePost/<%= post.id %>">刪除</a>
+              </div>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+    </div><!-- /.row -->
+  </main>
+  <%- include('../template/footer') %>
+</body>
+</html>

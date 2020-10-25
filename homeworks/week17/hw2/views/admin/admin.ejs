@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <%- include('../template/head') %>
+</head>
+ <body>
+  <!--導覽列-->
+  <%- include('../template/navbar') %>
+  <!-- 直接根據 res.locals 內的 errorMessage 取得錯誤訊息 -->
+  <% if (errorMessage.length > 0) { %> <!-- errorMessage 預設值為空陣列 --> 
+    <div class="alert alert-danger" role="alert">
+      <%= errorMessage %>
+    </div>
+  <% } %>
+  <!--管理區域-->
+  <main class="container">
+    <!-- 新增獎項按鈕 -->
+    <button class="btn btn-primary btn_add_lottery mb-3">新增獎項</button>
+    <table class="table table-sm table-bordered">
+      <tr class="lottery_info_tr">
+        <th>獎項名稱</th>
+        <th>獎項說明</th>
+        <th>獎項圖片網址</th>
+        <th>獎項機率(%)
+          <div class="text-danger">*所有獎項機率總和需為 100</div>
+        </th>
+        <th>刪除</th>
+      </tr>
+      <!-- 資料庫無資料時防錯 -->
+      <% if (typeof lotteries !== 'undefined') {%> 
+      <% if (lotteries != '') { %> 
+        <% for (let lottery of lotteries) { %>
+        <tr class="lottery_row">
+          <td>
+            <input class="form-control" type="text" name="name" value="<%- lottery.name %>"/>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="content" value="<%- lottery.content %>"/>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="imageURL" value="<%- lottery.imageURL %>"/>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="chance" value="<%- lottery.chance %>"/>
+            <input type="hidden" name="id" value="<%- lottery.id %>">
+          </td>
+          <td>
+            <i class="fas fa-trash-alt"></i>
+          </td>
+        </tr>
+      <% }}} %>
+    </table>
+    <!-- 確認更新按鈕 -->
+    <center><button class="btn btn-warning btn-lg submit_update">確認更新</button></center>
+  </main>
+  <!--底部資訊-->
+  <%- include('../template/footer') %>
+  <!-- Modal -->
+  <div class="modal fade" id="popupMsg" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">警告</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">我知道了!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 引入 JS，負責 client 端互動，檢查輸入以及發送 request 到 API -->
+  <script src="/admin.js"></script>
+</body>
+</html>

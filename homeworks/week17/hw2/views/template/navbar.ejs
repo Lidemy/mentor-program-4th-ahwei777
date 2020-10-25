@@ -1,0 +1,17 @@
+<nav class = 'navbar'>
+  <div class = 'wrapper'>
+    <div class = 'navbar__site-name'>Just A Bite!</div>
+    <div>
+      <ul class = 'navbar__list'>
+        <li class = '<%= getActiveFromURL(url, "/index") %>'><a href ="/index">抽個大獎</a></li>
+        <% if(username) { %>
+          <li class = '<%= getActiveFromURL(url, "/admin") %>'><a href ="/admin">獎項管理</a></li>
+          <li><a href ="/logout">後台登出</a></li>
+        <% } else { %>
+          <li class = '<%= getActiveFromURL(url, "/register") %>'><a href ="/register">後台註冊</a></li>
+          <li class = '<%= getActiveFromURL(url, "/login") %>'><a href ="/login">後台登入</a></li>
+        <% } %> 
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,2 +1,5 @@
 examples/
 dist/
+migrations/
+models/
+seeders/
