@@ -1,5 +1,5 @@
 //  將固定網址及文字設為變數
-const API_URL = 'http://localhost:5003/lotteries/';
+const API_URL = 'http://restaurant.ahwei777.tw/lotteries';
 const errorMessage = '系統不穩定，請再試一次';
 //  設立一用來 call API 的函數，呼叫後會回傳 err(失敗)或經處理後的物件 json(成功)，後續再設定 callback function 處理回傳值
 function getPrize(cb) {
