@@ -91,7 +91,7 @@ export default function LoginPage() {
         </Form.Group>
 
         <Button variant="primary" size="lg" className="" type="submit">
-          註冊
+          登入
         </Button>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </Form>
