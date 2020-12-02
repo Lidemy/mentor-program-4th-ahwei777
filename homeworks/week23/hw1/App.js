@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import './App.css';
-import React from 'react';
+import React, { memo } from 'react';
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
@@ -14,14 +14,14 @@ const TodoContainer = styled.div`
   padding: 16px;
   background: white;
 `;
-const Title = styled.div`
+const Title = memo(styled.div`
   color: orange;
   text-align: center;
   font-size: 60px;
   font-weight: bold;
   padding: 20px;
   margin-bottom: 10px;
-`;
+`);
 
 export default function TodosRedux() {
   const {
@@ -38,7 +38,6 @@ export default function TodosRedux() {
     handleUpdateDone,
     editingInput,
   } = useTodos();
-  console.log('render app');
   return (
     <Container className="my-5">
       <TodoContainer>

@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 // dumb component 不知道 redux 的存在，只負責 UI 顯示， redux 提供的函式透過 props 傳入
 const AddTodo = memo(({ handleAddTodo, handleSetFilter }) => {
   const [value, setValue] = useState('');
-  console.log('render add todo');
   return (
     <InputGroup className="mb-3">
       <FormControl
@@ -24,7 +23,7 @@ const AddTodo = memo(({ handleAddTodo, handleSetFilter }) => {
             }
             handleAddTodo(value);
             setValue('');
-            handleSetFilter(null);
+            handleSetFilter('all');
           }}
         >
           送出

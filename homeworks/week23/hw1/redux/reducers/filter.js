@@ -1,7 +1,7 @@
 import { SET_FILTER } from '../actionTypes';
 
 const initialState = {
-  name: null,
+  name: 'all',
 };
 
 export default function filterReducer(state = initialState, action) {

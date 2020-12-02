@@ -8,8 +8,8 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 // week23
 import { Provider } from 'react-redux';
-import TodosRedux from './components/Todos-redux/App';
-import store from './components/Todos-redux/redux/store';
+import TodosRedux from './App';
+import store from './redux/store';
 
 // <React.StrictMode> 嚴格模式可能會造成偵錯問題，可先取消
 ReactDOM.render(

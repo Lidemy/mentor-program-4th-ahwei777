@@ -18,8 +18,6 @@ const FilterBar = memo(
       return count;
     }, [todos]);
 
-    console.log('render FilterBar');
-
     return (
       <>
         <div className="d-flex justify-content-between align-items-center my-3 px-3">
@@ -31,8 +29,8 @@ const FilterBar = memo(
           <div className="options">
             <Button
               variant="info"
-              onClick={() => handleSetFilter(null)}
-              className={filter === null && 'active'}
+              onClick={() => handleSetFilter('all')}
+              className={filter === 'all' && 'active'}
             >
               All
             </Button>
