@@ -4,6 +4,8 @@
 
 Redux 的概念來自 Flux ，後者為 Facebook 隨著 React 推出的一個架構，或是該說是一種概念，並沒有固定的實作方式。Facebook 推出 Flux 的目的，是要解決傳統 MVC 模式中，因專案結構變大造成 View 與 Model 間產生複雜關係及高度耦合，此時多向的資料流造成難以追蹤來源及 debug，因此 Flux 以單向資料流的概念來解決此一問題。而經過時間的演進，當初最早的 Flux 架構經過社群改良後發展成各個 library，而搭配 React 使用上最有名的一套就叫做 Redux。注意 Redux 的重點是在解決大型專案架構產生的問題，如果小型專案反而並不適合使用，且可能因此降低效能。
 
+此外，因為 Redux 是個幫助管理狀態的工具，也相當適合儲存的 global 的狀態如帳號登入，方便跨元件共用，且相比 context 的效能更好。
+
 ## Redux 是什麼？可以簡介一下 Redux 的各個元件跟資料流嗎？
 
 > 來自 Redux 首頁：Redux is a predictable state container for JavaScript apps
