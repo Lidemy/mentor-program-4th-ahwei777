@@ -14,23 +14,18 @@ import { setErrorMessage } from './errorMessageReducer';
 export const postSlice = createSlice({
   name: 'posts',
   initialState: {
-    error: null,
-
     isGettingPost: false,
+    //  post
     singlePostData: null,
     allPostData: null,
     byPagePostData: null,
-
-    getPostResponse: null,
     totalPostsCount: null,
-    isAddingPost: false,
 
+    isAddingPost: false,
     addPostResponse: null,
+
     isDeletingPost: false,
-    deletePostResponse: {
-      ok: null,
-      errorMessage: null,
-    },
+
     isUpdatingPost: null,
     updatePostResponse: null,
   },
@@ -40,7 +35,6 @@ export const postSlice = createSlice({
       state.isGettingPost = action.payload;
     },
     setSinglePostData: (state, action) => {
-      console.log('receive setSinglePostData');
       state.singlePostData = action.payload;
     },
     setAllPostData: (state, action) => {
@@ -48,10 +42,6 @@ export const postSlice = createSlice({
     },
     setByPagePostData: (state, action) => {
       state.byPagePostData = action.payload;
-    },
-
-    setGetPostResponse: (state, action) => {
-      state.getPostResponse = action.payload;
     },
     setTotalPostsCount: (state, action) => {
       state.totalPostsCount = action.payload;
@@ -65,9 +55,6 @@ export const postSlice = createSlice({
     setIsDeletingPost: (state, action) => {
       state.isDeletingPost = action.payload;
     },
-    setDeletePostResponse: (state, action) => {
-      state.deletePostResponse = action.payload;
-    },
     setIsUpdatingPost: (state, action) => {
       state.isUpdatingPost = action.payload;
     },
@@ -80,11 +67,9 @@ export const postSlice = createSlice({
 // 設定 action
 export const {
   setIsGettingPost,
-
   setSinglePostData,
   setAllPostData,
   setByPagePostData,
-
   setTotalPostsCount,
   setIsAddingPost,
   setAddPostResponse,
@@ -209,6 +194,15 @@ export const updatePost = (id, data) => (dispatch) => {
 };
 
 // selector
-export const selectCount = state => state.counter.value;
+export const selectAddPostResponse = store => store.posts.addPostResponse;
+export const selectIsGettingPost = store => store.posts.isGettingPost;
+export const selectIsAddingPost = store => store.posts.isAddingPost;
+export const selectIsDeletingPost = store => store.posts.isDeletingPost;
+export const selectAllPostData = store => store.posts.allPostData;
+export const selectByPagePostData = store => store.posts.byPagePostData;
+export const selectSinglePostData = store => store.posts.singlePostData;
+export const selectTotalPostCount = store => store.posts.totalPostsCount;
+export const selectIsUpdatingPost = store => store.posts.isUpdatingPost;
+export const selectUpdatePostResponse = store => store.posts.updatePostResponse;
 
 export default postSlice.reducer;

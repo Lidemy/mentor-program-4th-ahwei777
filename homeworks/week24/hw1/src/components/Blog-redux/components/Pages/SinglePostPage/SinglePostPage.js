@@ -14,7 +14,11 @@ import {
   getPost,
   setSinglePostData,
   deletePost,
+  selectIsGettingPost,
+  selectIsDeletingPost,
+  selectSinglePostData,
 } from '../../../redux/reducers/postReducer';
+import { selectUserData } from '../../../redux/reducers/userReducer';
 import PostLoadingBackground from '../../Loaders/LoopCircleLoading';
 
 const PostContainer = styled.div`
@@ -79,38 +83,46 @@ function DeleteModal({
 
 const Post = memo(({
   singlePostData, handleShowDeleteModal, userData, id,
-}) => {
-  console.log('render post');
-  return (
-    <PostContainer>
-      <PostTitle>{singlePostData[0].title}</PostTitle>
-      <PostDate>
-        {new Date(singlePostData[0].createdAt).toLocaleString()}
-      </PostDate>
-      {/* 權限驗證 */}
-      {userData && (
-        <ButtonWrapper>
-          <Button
-            className="mr-3"
-            variant="info"
-            href={`#/BlogAppRedux/update-post/${id}`}
-          >
+}) => (
+  <PostContainer>
+    <PostTitle>{singlePostData[0].title}</PostTitle>
+    <PostDate>
+      {new Date(singlePostData[0].createdAt).toLocaleString()}
+    </PostDate>
+    {/* 權限驗證：登入者的 ID 為此篇文章作者的 ID 時才可編輯及刪除 */}
+    {userData && userData.id === singlePostData[0].userId && (
+    <ButtonWrapper>
+      <Button
+        className="mr-3"
+        variant="info"
+        href={`#/BlogAppRedux/update-post/${id}`}
+      >
             編輯
-          </Button>
-          <Button variant="danger" onClick={handleShowDeleteModal}>
+      </Button>
+      <Button variant="danger" onClick={handleShowDeleteModal}>
             刪除
-          </Button>
-        </ButtonWrapper>
-      )}
-      <PostBody>{singlePostData[0].body}</PostBody>
-    </PostContainer>
-  );
-});
+      </Button>
+    </ButtonWrapper>
+    )}
+    <PostBody>{singlePostData[0].body}</PostBody>
+  </PostContainer>
+));
 
 export default function SinglePost() {
   //  取得在 Route 中設定的 URL 參數
   const { id } = useParams();
   const history = useHistory();
+
+  // 引入 redux function 及 store
+  const dispatch = useDispatch();
+  const userData = useSelector(selectUserData);
+  const isGettingPost = useSelector(selectIsGettingPost);
+  const singlePostData = useSelector(selectSinglePostData);
+  const isDeletingPost = useSelector(selectIsDeletingPost);
+  const prevIsDeletingPost = usePrevious(isDeletingPost);
+  const handleDeletePost = () => {
+    dispatch(deletePost(id));
+  };
 
   //  刪除確認視窗
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -118,18 +130,6 @@ export default function SinglePost() {
     setShowDeleteModal(true);
   }, [setShowDeleteModal]);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
-
-  // 引入 redux function 及 store
-  const dispatch = useDispatch();
-
-  const userData = useSelector(store => store.user.data);
-  const isGettingPost = useSelector(store => store.posts.isGettingPost);
-  const singlePostData = useSelector(store => store.posts.singlePostData);
-  const isDeletingPost = useSelector(store => store.posts.isDeletingPost);
-  const prevIsDeletingPost = usePrevious(isDeletingPost);
-  const handleDeletePost = () => {
-    dispatch(deletePost(id));
-  };
 
   // 當 id 改變時就呼叫 redux thunk 協助 call API
   useEffect(() => {
